@@ -1,0 +1,29 @@
+{
+  "isFull": false,
+  "list": [
+    {
+      "title": "这里填写示例标题",
+      "description": "这里填写示例说明",
+      "code": "./base.js",
+      "scope": [
+        {
+          "name": "_MarkdownComponentsRender",
+          "packageName": "@kne/current-lib_markdown-components-render",
+          "importStatement": "import * as _MarkdownComponentsRender from \"@kne/markdown-components-render\""
+        },
+        {
+          "name": "antd",
+          "packageName": "antd"
+        },
+        {
+          "name": "_ReactFetch",
+          "packageName": "@kne/react-fetch"
+        },
+        {
+          "name": "md",
+          "packageName": "./doc/example.md"
+        }
+      ]
+    }
+  ]
+}
