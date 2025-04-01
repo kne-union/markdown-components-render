@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, Fragment } from 'react';
 import markdown from 'markdown-it';
 import mdComponents from './markdown-it-components';
 import compileVariables from './compileVariables';
 import useRefCallback from '@kne/use-ref-callback';
 import merge from 'lodash/merge';
 import preset, { globalParams } from './preset';
+import htmlParser from 'html-react-parser';
 
 const MarkdownComponentsRender = ({ children = '', ...props }) => {
   const { htmlTransform, components = {}, variables = {}, options } = merge({}, globalParams, props);
@@ -38,12 +39,7 @@ const MarkdownComponentsRender = ({ children = '', ...props }) => {
         return <MdComponent {...Object.assign({}, compileVariables(props, variables))} key={index} />;
       }
 
-      return React.createElement(element.tagName.toLowerCase(), {
-        key: index,
-        dangerouslySetInnerHTML: {
-          __html: element.innerHTML
-        }
-      });
+      return <Fragment key={index}>{htmlParser(element.outerHTML)}</Fragment>;
     });
   });
 
