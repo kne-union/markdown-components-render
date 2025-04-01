@@ -4,7 +4,7 @@
 
 ### 描述
 
-渲染markdown文本，支持components
+渲染markdown文本，支持components.
 
 
 ### 安装
