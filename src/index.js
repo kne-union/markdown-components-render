@@ -7,7 +7,7 @@ import merge from 'lodash/merge';
 import preset, { globalParams } from './preset';
 import htmlParser from 'html-react-parser';
 
-const MarkdownComponentsRender = ({ children = '', ...props }) => {
+const MarkdownComponentsRender = ({ children = '', render: customRender, ...props }) => {
   const { htmlTransform, components = {}, variables = {}, options } = merge({}, globalParams, props);
   const render = useRefCallback(children => {
     const { config, plugins } = Object.assign({}, options, {
@@ -43,9 +43,15 @@ const MarkdownComponentsRender = ({ children = '', ...props }) => {
     });
   });
 
-  return useMemo(() => {
+  const result = useMemo(() => {
     return render(children);
   }, [children, render]);
+
+  if (typeof customRender === 'function') {
+    return customRender(result);
+  }
+
+  return result;
 };
 
 export default MarkdownComponentsRender;
