@@ -25,13 +25,15 @@ const mdComponents = function (md) {
   md.renderer.rules.fence = function (tokens, idx, options, env, self) {
     const token = tokens[idx];
     if (token.info.trim() === 'yml') {
-      const jsonData = yaml.load(token.content);
-      if (validate(jsonData)) {
-        const element = document.createElement('pre');
-        element.setAttribute('class', 'yaml-components');
-        element.dataset.components = JSON.stringify(jsonData);
-        return element.outerHTML;
-      }
+      try {
+        const jsonData = yaml.load(token.content);
+        if (validate(jsonData)) {
+          const element = document.createElement('pre');
+          element.setAttribute('class', 'yaml-components');
+          element.dataset.components = JSON.stringify(jsonData);
+          return element.outerHTML;
+        }
+      } catch (e) {}
     }
     return defaultFence(tokens, idx, options, env, self);
   };
