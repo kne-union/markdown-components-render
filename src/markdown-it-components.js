@@ -28,7 +28,7 @@ const mdComponents = function (md) {
       try {
         const jsonData = yaml.load(token.content);
         if (validate(jsonData)) {
-          const element = document.createElement('span');
+          const element = document.createElement('pre');
           element.setAttribute('class', 'yaml-components');
           element.dataset.components = JSON.stringify(jsonData);
           return element.outerHTML;
