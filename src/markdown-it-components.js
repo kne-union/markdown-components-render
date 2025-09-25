@@ -26,23 +26,35 @@ const mdComponents = function (md) {
 
   md.renderer.rules.code_inline = function (tokens, idx, options, env, self) {
     const token = tokens[idx];
-    const regex = /^md-components:(.+)\{(.+)}$/;
     try {
-      if (regex.test(token.content)) {
-        const matcher = token.content.match(regex);
-        const componentsType = matcher[1],
-          props = JSON.parse(`{${matcher[2]}}`);
-        const jsonData = {
-          'md-components': {
-            type: componentsType,
-            props: props
-          }
-        };
-        if (validate(jsonData)) {
-          const element = document.createElement('code');
-          element.setAttribute('class', 'md-components');
-          element.dataset.components = JSON.stringify(jsonData);
-          return element.outerHTML;
+      if (/^md-components/.test(token.content)) {
+        const pattern = /md-components:(\w+)\{([^}]+)}/g;
+        let matches;
+        const results = [];
+        while ((matches = pattern.exec(token.content)) !== null) {
+          results.push({
+            componentsType: matches[1],
+            props: matches[2]
+          });
+        }
+        if (results.length > 0) {
+          return results
+            .map(({ componentsType, props }) => {
+              const jsonData = {
+                'md-components': {
+                  type: componentsType,
+                  props: JSON.parse(`{${props}}`)
+                }
+              };
+              if (validate(jsonData)) {
+                const element = document.createElement('code');
+                element.setAttribute('class', 'md-components');
+                element.dataset.components = JSON.stringify(jsonData);
+                return element.outerHTML;
+              }
+              return '';
+            })
+            .join('');
         }
       }
     } catch (e) {
