@@ -61,7 +61,7 @@ md-components:
 const { default: MarkdownComponentsRender } = _MarkdownComponentsRender;
 const { default: mdUrl } = md;
 const { default: Fetch } = _ReactFetch;
-const { Card, Button, App } = antd;
+const { Card, Button, App, Flex } = antd;
 
 const BaseExample = () => {
   const { message } = App.useApp();
@@ -71,15 +71,17 @@ const BaseExample = () => {
       ignoreSuccessState
       render={({ data }) => {
         return (
-          <MarkdownComponentsRender
-            components={{ Card, Button }}
-            variables={{
-              onClick: () => {
-                message.info('你好');
-              }
-            }}>
-            {data}
-          </MarkdownComponentsRender>
+          <Flex vertical gap={10}>
+            <MarkdownComponentsRender
+              components={{ Card, Button }}
+              variables={{
+                onClick: () => {
+                  message.info('你好');
+                }
+              }}>
+              {data}
+            </MarkdownComponentsRender>
+          </Flex>
         );
       }}></Fetch>
   );

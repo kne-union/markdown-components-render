@@ -23,6 +23,7 @@ const MarkdownComponentsRender = ({ children = '', render: customRender, ...prop
     md.use(mdComponents);
 
     const html = md.render(children);
+
     return htmlParser(typeof htmlTransform === 'function' ? htmlTransform(html) : html, {
       replace(element) {
         if (element.attribs && element.attribs.class === 'md-components' && element.attribs['data-components']) {
