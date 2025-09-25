@@ -24,4 +24,4 @@ md-components:
     onClick: $onClick
 ```
 
-我是一个行内的组件`md-components:Button{"type":"link","onClick":"$onClick","children":"我是一个行内按钮"}`测试行内按钮
+我是一个行内的组件`md-components:Button{"type":"link","onClick":"$onClick","children":"我是一个行内按钮"}``md-components:Button{"type":"link","onClick":"$onClick","children":"我是第二个行内按钮"}`测试行内按钮
