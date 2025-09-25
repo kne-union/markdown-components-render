@@ -51,17 +51,6 @@ md-components:
 
 ### 示例
 
-
-#### 示例样式
-
-```scss
-.ant-card {
-  border-color: black;
-  text-align: center;
-  width: 200px;
-}
-```
-
 #### 示例代码
 
 - 这里填写示例标题
