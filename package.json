@@ -1,6 +1,6 @@
 {
   "name": "@kne/markdown-components-render",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "渲染markdown文本，支持components.",
   "syntax": {
     "esmodules": true

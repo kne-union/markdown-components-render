@@ -25,3 +25,8 @@ md-components:
     onClick: $onClick
 \`\`\`
 ```
+
+支持行内组件:
+```md
+我是一个行内组件\`md-components:Button{"type":"link","onClick":"$onClick","children":"我是一个行内按钮"}\`
+```
