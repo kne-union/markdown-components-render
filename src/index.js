@@ -1,4 +1,4 @@
-import React, { useMemo, Fragment } from 'react';
+import React, { useMemo, Fragment, createElement } from 'react';
 import markdown from 'markdown-it';
 import mdComponents from './markdown-it-components';
 import compileVariables from './compileVariables';
@@ -23,23 +23,23 @@ const MarkdownComponentsRender = ({ children = '', render: customRender, ...prop
     md.use(mdComponents);
 
     const html = md.render(children);
-    const root = document.createElement('div');
-    root.innerHTML = typeof htmlTransform === 'function' ? htmlTransform(html) : html;
-    return [].slice.call(root.children).map((element, index) => {
-      if (element.className === 'yaml-components' && element.dataset.components) {
-        const componentsData = JSON.parse(element.dataset.components);
-        if (!componentsData['md-components']) {
-          return null;
-        }
-        const { type, props } = componentsData['md-components'];
-        const MdComponent = components[type];
-        if (!MdComponent) {
-          return null;
-        }
-        return <MdComponent {...Object.assign({}, compileVariables(props, variables))} key={index} />;
-      }
 
-      return <Fragment key={index}>{htmlParser(element.outerHTML)}</Fragment>;
+    return htmlParser(typeof htmlTransform === 'function' ? htmlTransform(html) : html, {
+      replace(element) {
+        if (element.attribs && element.attribs.class === 'md-components' && element.attribs['data-components']) {
+          const componentsData = JSON.parse(element.attribs['data-components']);
+          if (!componentsData['md-components']) {
+            return null;
+          }
+          const { type, props } = componentsData['md-components'];
+          const MdComponent = components[type];
+          if (!MdComponent) {
+            return null;
+          }
+          return <MdComponent {...Object.assign({}, compileVariables(props, variables))} />;
+        }
+        return element;
+      }
     });
   });
 

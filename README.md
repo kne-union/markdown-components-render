@@ -44,18 +44,12 @@ md-components:
 \`\`\`
 ```
 
-### 示例
-
-
-#### 示例样式
-
-```scss
-.ant-card {
-  border-color: black;
-  text-align: center;
-  width: 200px;
-}
+支持行内组件:
+```md
+我是一个行内组件\`md-components:Button{"type":"link","onClick":"$onClick","children":"我是一个行内按钮"}\`
 ```
+
+### 示例
 
 #### 示例代码
 
@@ -67,7 +61,7 @@ md-components:
 const { default: MarkdownComponentsRender } = _MarkdownComponentsRender;
 const { default: mdUrl } = md;
 const { default: Fetch } = _ReactFetch;
-const { Card, Button, App } = antd;
+const { Card, Button, App, Flex } = antd;
 
 const BaseExample = () => {
   const { message } = App.useApp();
@@ -77,15 +71,17 @@ const BaseExample = () => {
       ignoreSuccessState
       render={({ data }) => {
         return (
-          <MarkdownComponentsRender
-            components={{ Card, Button }}
-            variables={{
-              onClick: () => {
-                message.info('你好');
-              }
-            }}>
-            {data}
-          </MarkdownComponentsRender>
+          <Flex vertical gap={10}>
+            <MarkdownComponentsRender
+              components={{ Card, Button }}
+              variables={{
+                onClick: () => {
+                  message.info('你好');
+                }
+              }}>
+              {data}
+            </MarkdownComponentsRender>
+          </Flex>
         );
       }}></Fetch>
   );
