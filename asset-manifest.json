@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.js": "/markdown-components-render/static/js/main.b59ab5d3.js",
-    "markdown_components_render_0_1_6.js": "/markdown-components-render/remoteEntry.js",
+    "main.js": "/markdown-components-render/static/js/main.77664e14.js",
+    "markdown_components_render_0_1_7.js": "/markdown-components-render/remoteEntry.js",
     "static/css/198.6d404fbc.chunk.css": "/markdown-components-render/static/css/198.6d404fbc.chunk.css",
-    "static/js/198.bc6b2bda.chunk.js": "/markdown-components-render/static/js/198.bc6b2bda.chunk.js",
-    "static/js/830.dfff2751.chunk.js": "/markdown-components-render/static/js/830.dfff2751.chunk.js",
+    "static/js/198.8a29713b.chunk.js": "/markdown-components-render/static/js/198.8a29713b.chunk.js",
+    "static/js/830.d4945549.chunk.js": "/markdown-components-render/static/js/830.d4945549.chunk.js",
     "static/js/97.951395be.chunk.js": "/markdown-components-render/static/js/97.951395be.chunk.js",
     "static/js/848.c67a821d.chunk.js": "/markdown-components-render/static/js/848.c67a821d.chunk.js",
     "static/js/379.0f58ddaa.chunk.js": "/markdown-components-render/static/js/379.0f58ddaa.chunk.js",
     "static/js/446.554cdf67.chunk.js": "/markdown-components-render/static/js/446.554cdf67.chunk.js",
     "static/js/233.9a65fb3d.chunk.js": "/markdown-components-render/static/js/233.9a65fb3d.chunk.js",
-    "static/js/136.1c2b3c20.chunk.js": "/markdown-components-render/static/js/136.1c2b3c20.chunk.js",
+    "static/js/136.e05197b1.chunk.js": "/markdown-components-render/static/js/136.e05197b1.chunk.js",
     "static/js/201.f979bc15.chunk.js": "/markdown-components-render/static/js/201.f979bc15.chunk.js",
     "static/js/84.92c53d55.chunk.js": "/markdown-components-render/static/js/84.92c53d55.chunk.js",
     "static/js/467.daf4d72c.chunk.js": "/markdown-components-render/static/js/467.daf4d72c.chunk.js",
@@ -22,19 +22,19 @@
     "static/js/391.7ab832b4.chunk.js": "/markdown-components-render/static/js/391.7ab832b4.chunk.js",
     "static/js/691.1a467730.chunk.js": "/markdown-components-render/static/js/691.1a467730.chunk.js",
     "static/js/351.cd740993.chunk.js": "/markdown-components-render/static/js/351.cd740993.chunk.js",
+    "static/media/example.md": "/markdown-components-render/static/media/example.f05cae1a6b02e4021cac.md",
     "index.html": "/markdown-components-render/index.html",
-    "static/media/example.md": "/markdown-components-render/static/media/example.6d81b8237ffc0c64a914.md",
-    "main.b59ab5d3.js.map": "/markdown-components-render/static/js/main.b59ab5d3.js.map",
+    "main.77664e14.js.map": "/markdown-components-render/static/js/main.77664e14.js.map",
     "remoteEntry.js.map": "/markdown-components-render/remoteEntry.js.map",
     "198.6d404fbc.chunk.css.map": "/markdown-components-render/static/css/198.6d404fbc.chunk.css.map",
-    "198.bc6b2bda.chunk.js.map": "/markdown-components-render/static/js/198.bc6b2bda.chunk.js.map",
-    "830.dfff2751.chunk.js.map": "/markdown-components-render/static/js/830.dfff2751.chunk.js.map",
+    "198.8a29713b.chunk.js.map": "/markdown-components-render/static/js/198.8a29713b.chunk.js.map",
+    "830.d4945549.chunk.js.map": "/markdown-components-render/static/js/830.d4945549.chunk.js.map",
     "97.951395be.chunk.js.map": "/markdown-components-render/static/js/97.951395be.chunk.js.map",
     "848.c67a821d.chunk.js.map": "/markdown-components-render/static/js/848.c67a821d.chunk.js.map",
     "379.0f58ddaa.chunk.js.map": "/markdown-components-render/static/js/379.0f58ddaa.chunk.js.map",
     "446.554cdf67.chunk.js.map": "/markdown-components-render/static/js/446.554cdf67.chunk.js.map",
     "233.9a65fb3d.chunk.js.map": "/markdown-components-render/static/js/233.9a65fb3d.chunk.js.map",
-    "136.1c2b3c20.chunk.js.map": "/markdown-components-render/static/js/136.1c2b3c20.chunk.js.map",
+    "136.e05197b1.chunk.js.map": "/markdown-components-render/static/js/136.e05197b1.chunk.js.map",
     "201.f979bc15.chunk.js.map": "/markdown-components-render/static/js/201.f979bc15.chunk.js.map",
     "84.92c53d55.chunk.js.map": "/markdown-components-render/static/js/84.92c53d55.chunk.js.map",
     "467.daf4d72c.chunk.js.map": "/markdown-components-render/static/js/467.daf4d72c.chunk.js.map",
@@ -48,6 +48,6 @@
     "351.cd740993.chunk.js.map": "/markdown-components-render/static/js/351.cd740993.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.b59ab5d3.js"
+    "static/js/main.77664e14.js"
   ]
 }
