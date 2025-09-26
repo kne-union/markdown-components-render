@@ -1,4 +1,4 @@
-const compileVariables = (props, variables) => {
+const compileVariables = (props, variables = {}) => {
   if (Array.isArray(props)) {
     return props.map(prop => {
       return compileVariables(prop, variables);
@@ -11,7 +11,7 @@ const compileVariables = (props, variables) => {
     });
     return newProps;
   }
-  if (props && typeof props === 'string' && props.charAt(0) === '$' && variables[props.substring(1)]) {
+  if (props && typeof props === 'string' && props.charAt(0) === '$' && variables && variables[props.substring(1)]) {
     return variables[props.substring(1)];
   }
 

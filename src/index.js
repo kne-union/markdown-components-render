@@ -1,11 +1,11 @@
-import React, { useMemo, Fragment, createElement } from 'react';
+import React, { useMemo } from 'react';
 import markdown from 'markdown-it';
-import mdComponents from './markdown-it-components';
-import compileVariables from './compileVariables';
+import markdownComponentsPlugin from './md-components-plugin';
+import MarkdownComponents from './md-components';
+
 import useRefCallback from '@kne/use-ref-callback';
 import merge from 'lodash/merge';
 import preset, { globalParams } from './preset';
-import htmlParser from 'html-react-parser';
 
 const MarkdownComponentsRender = ({ children = '', render: customRender, ...props }) => {
   const { htmlTransform, components = {}, variables = {}, options } = merge({}, globalParams, props);
@@ -20,27 +20,11 @@ const MarkdownComponentsRender = ({ children = '', render: customRender, ...prop
       const pluginArgs = Array.isArray(plugin) ? plugin : [plugin];
       md.use(...pluginArgs);
     });
-    md.use(mdComponents);
+    md.use(markdownComponentsPlugin);
 
     const html = md.render(children);
 
-    return htmlParser(typeof htmlTransform === 'function' ? htmlTransform(html) : html, {
-      replace(element) {
-        if (element.attribs && element.attribs.class === 'md-components' && element.attribs['data-components']) {
-          const componentsData = JSON.parse(element.attribs['data-components']);
-          if (!componentsData['md-components']) {
-            return null;
-          }
-          const { type, props } = componentsData['md-components'];
-          const MdComponent = components[type];
-          if (!MdComponent) {
-            return null;
-          }
-          return <MdComponent {...Object.assign({}, compileVariables(props, variables))} />;
-        }
-        return element;
-      }
-    });
+    return <MarkdownComponents html={typeof htmlTransform === 'function' ? htmlTransform(html) : html} variables={variables} components={components} />;
   });
 
   const result = useMemo(() => {
@@ -55,4 +39,4 @@ const MarkdownComponentsRender = ({ children = '', render: customRender, ...prop
 };
 
 export default MarkdownComponentsRender;
-export { preset };
+export { preset, markdownComponentsPlugin, MarkdownComponents };

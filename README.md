@@ -16,7 +16,22 @@ npm i --save @kne/markdown-components-render
 
 ### 概述
 
-用于将一个yml格式的数据展示为一个已经定义好的react组件
+本项目是一个用于渲染 Markdown 内容的组件库，支持通过自定义组件和变量替换来增强 Markdown 的渲染能力。
+
+#### 功能特性
+
+- **Markdown 渲染**：支持标准的 Markdown 语法渲染。
+- **自定义组件**：允许通过 `components` 属性定义自定义组件类型。
+- **变量替换**：支持通过 `variables` 属性实现动态变量替换。
+- **HTML 转换**：提供 `htmlTransform` 函数用于转换渲染后的 HTML 内容。
+- **自定义渲染逻辑**：支持通过 `customRender` 函数覆盖默认的渲染逻辑。
+
+#### 使用场景
+
+- 动态生成文档内容。
+- 支持变量替换的动态页面渲染。
+- 自定义 Markdown 渲染逻辑的场景。
+
 
 如下的yml会被渲染为Card组件
 
@@ -94,12 +109,13 @@ render(<BaseExample />);
 
 ### API
 
-| 属性名             | 说明                                             | 类型     | 默认值 |
-|-----------------|------------------------------------------------|--------|-----|
-| children        | markdown内容                                     | string | -   |
-| components      | 用于渲染的组件类型对象，和yml里面的type对应                      | object | -   |
-| variables       | 变量对象，如果被渲染组件属性的值中有$开头的变量，则去该变量中查找，如果可以查找到，引用该值 | object | -   |
-| options         | markdown-it的配置参数                               | object | -   |
-| options.config  | markdown-it初始化构造函数参数                           | object | -   |
-| options.plugins | markdown-it对象.use 应用的值                         | array  | []  |
-
+| 属性名             | 说明                                             | 类型       | 默认值 |
+|-----------------|------------------------------------------------|----------|-----|
+| children        | markdown内容                                     | string   | -   |
+| components      | 用于渲染的组件类型对象，和yml里面的type对应                      | object   | -   |
+| variables       | 变量对象，如果被渲染组件属性的值中有$开头的变量，则去该变量中查找，如果可以查找到，引用该值 | object   | -   |
+| options         | markdown-it的配置参数                               | object   | -   |
+| options.config  | markdown-it初始化构造函数参数                           | object   | -   |
+| options.plugins | markdown-it对象.use 应用的值                         | array    | []  |
+| htmlTransform   | 用于转换渲染后的HTML内容的函数                              | function | -   |
+| customRender    | 自定义渲染函数，用于覆盖默认的渲染逻辑                            | function | -   |
