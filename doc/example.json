@@ -1,9 +1,9 @@
 {
-  "isFull": false,
+  "isFull": true,
   "list": [
     {
-      "title": "这里填写示例标题",
-      "description": "这里填写示例说明",
+      "title": "基础使用",
+      "description": "展示 MarkdownComponentsRender 组件的基本用法，包括如何传入 components 和 variables",
       "code": "./base.js",
       "scope": [
         {
@@ -22,6 +22,117 @@
         {
           "name": "md",
           "packageName": "./doc/example.md"
+        },
+        {
+          "packageName": "@kne/current-lib_markdown-components-render/dist/index.css"
+        }
+      ]
+    },
+    {
+      "title": "卡片组件",
+      "description": "展示如何在 Markdown 中使用 Card 组件",
+      "code": "./card-example.js",
+      "scope": [
+        {
+          "name": "_MarkdownComponentsRender",
+          "packageName": "@kne/current-lib_markdown-components-render",
+          "importStatement": "import * as _MarkdownComponentsRender from \"@kne/current-lib_markdown-components-render\""
+        },
+        {
+          "name": "antd",
+          "packageName": "antd"
+        },
+        {
+          "name": "_ReactFetch",
+          "packageName": "@kne/react-fetch"
+        },
+        {
+          "name": "md",
+          "packageName": "./doc/card-example.md"
+        },
+        {
+          "packageName": "@kne/current-lib_markdown-components-render/dist/index.css"
+        }
+      ]
+    },
+    {
+      "title": "按钮组件",
+      "description": "展示如何在 Markdown 中使用各种类型的 Button 组件",
+      "code": "./button-example.js",
+      "scope": [
+        {
+          "name": "_MarkdownComponentsRender",
+          "packageName": "@kne/current-lib_markdown-components-render",
+          "importStatement": "import * as _MarkdownComponentsRender from \"@kne/current-lib_markdown-components-render\""
+        },
+        {
+          "name": "antd",
+          "packageName": "antd"
+        },
+        {
+          "name": "_ReactFetch",
+          "packageName": "@kne/react-fetch"
+        },
+        {
+          "name": "md",
+          "packageName": "./doc/button-example.md"
+        },
+        {
+          "packageName": "@kne/current-lib_markdown-components-render/dist/index.css"
+        }
+      ]
+    },
+    {
+      "title": "行内组件",
+      "description": "展示如何在 Markdown 文本中使用行内组件语法",
+      "code": "./inline-example.js",
+      "scope": [
+        {
+          "name": "_MarkdownComponentsRender",
+          "packageName": "@kne/current-lib_markdown-components-render",
+          "importStatement": "import * as _MarkdownComponentsRender from \"@kne/current-lib_markdown-components-render\""
+        },
+        {
+          "name": "antd",
+          "packageName": "antd"
+        },
+        {
+          "name": "_ReactFetch",
+          "packageName": "@kne/react-fetch"
+        },
+        {
+          "name": "md",
+          "packageName": "./doc/inline-example.md"
+        },
+        {
+          "packageName": "@kne/current-lib_markdown-components-render/dist/index.css"
+        }
+      ]
+    },
+    {
+      "title": "综合示例",
+      "description": "展示如何在一个 Markdown 文档中混合使用多种组件",
+      "code": "./mixed-example.js",
+      "scope": [
+        {
+          "name": "_MarkdownComponentsRender",
+          "packageName": "@kne/current-lib_markdown-components-render",
+          "importStatement": "import * as _MarkdownComponentsRender from \"@kne/current-lib_markdown-components-render\""
+        },
+        {
+          "name": "antd",
+          "packageName": "antd"
+        },
+        {
+          "name": "_ReactFetch",
+          "packageName": "@kne/react-fetch"
+        },
+        {
+          "name": "md",
+          "packageName": "./doc/mixed-example.md"
+        },
+        {
+          "packageName": "@kne/current-lib_markdown-components-render/dist/index.css"
         }
       ]
     }
