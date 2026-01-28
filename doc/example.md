@@ -15,6 +15,9 @@ md-components:
     children: 我是内容
 ```
 
+点击按钮试试：
+
+
 ```yml
 md-components:
   type: Button

@@ -64,13 +64,13 @@ md-components:
 我是一个行内组件\`md-components:Button{"type":"link","onClick":"$onClick","children":"我是一个行内按钮"}\`
 ```
 
-### 示例
+### 示例(全屏)
 
 #### 示例代码
 
-- 这里填写示例标题
-- 这里填写示例说明
-- _MarkdownComponentsRender(@kne/current-lib_markdown-components-render)[import * as _MarkdownComponentsRender from "@kne/markdown-components-render"],antd(antd),_ReactFetch(@kne/react-fetch),md(./doc/example.md)
+- 基础使用
+- 展示 MarkdownComponentsRender 组件的基本用法，包括如何传入 components 和 variables
+- _MarkdownComponentsRender(@kne/current-lib_markdown-components-render)[import * as _MarkdownComponentsRender from "@kne/markdown-components-render"],antd(antd),_ReactFetch(@kne/react-fetch),md(./doc/example.md),(@kne/current-lib_markdown-components-render/dist/index.css)
 
 ```jsx
 const { default: MarkdownComponentsRender } = _MarkdownComponentsRender;
@@ -103,6 +103,173 @@ const BaseExample = () => {
 };
 
 render(<BaseExample />);
+
+```
+
+- 卡片组件
+- 展示如何在 Markdown 中使用 Card 组件
+- _MarkdownComponentsRender(@kne/current-lib_markdown-components-render)[import * as _MarkdownComponentsRender from "@kne/current-lib_markdown-components-render"],antd(antd),_ReactFetch(@kne/react-fetch),md(./doc/card-example.md),(@kne/current-lib_markdown-components-render/dist/index.css)
+
+```jsx
+const { default: MarkdownComponentsRender } = _MarkdownComponentsRender;
+const { default: mdUrl } = md;
+const { default: Fetch } = _ReactFetch;
+const { Card, App, Flex } = antd;
+
+const CardExample = () => {
+  const { message } = App.useApp();
+  return (
+    <Fetch
+      url={mdUrl}
+      ignoreSuccessState
+      render={({ data }) => {
+        return (
+          <Flex vertical gap={10}>
+            <MarkdownComponentsRender
+              components={{ Card, Flex }}
+              variables={{
+                onClick: () => {
+                  message.info('卡片被点击');
+                }
+              }}>
+              {data}
+            </MarkdownComponentsRender>
+          </Flex>
+        );
+      }}></Fetch>
+  );
+};
+
+render(<CardExample />);
+
+```
+
+- 按钮组件
+- 展示如何在 Markdown 中使用各种类型的 Button 组件
+- _MarkdownComponentsRender(@kne/current-lib_markdown-components-render)[import * as _MarkdownComponentsRender from "@kne/current-lib_markdown-components-render"],antd(antd),_ReactFetch(@kne/react-fetch),md(./doc/button-example.md),(@kne/current-lib_markdown-components-render/dist/index.css)
+
+```jsx
+const { default: MarkdownComponentsRender } = _MarkdownComponentsRender;
+const { default: mdUrl } = md;
+const { default: Fetch } = _ReactFetch;
+const { Button, App, Flex } = antd;
+
+const ButtonExample = () => {
+  const { message } = App.useApp();
+  return (
+    <Fetch
+      url={mdUrl}
+      ignoreSuccessState
+      render={({ data }) => {
+        return (
+          <Flex vertical gap={10}>
+            <MarkdownComponentsRender
+              components={{ Button, Flex }}
+              variables={{
+                handlePrimaryClick: () => {
+                  message.success('主要按钮被点击');
+                },
+                handleLinkClick: () => {
+                  message.info('链接按钮被点击');
+                },
+                handleDangerClick: () => {
+                  message.error('危险操作被触发');
+                }
+              }}>
+              {data}
+            </MarkdownComponentsRender>
+          </Flex>
+        );
+      }}></Fetch>
+  );
+};
+
+render(<ButtonExample />);
+
+```
+
+- 行内组件
+- 展示如何在 Markdown 文本中使用行内组件语法
+- _MarkdownComponentsRender(@kne/current-lib_markdown-components-render)[import * as _MarkdownComponentsRender from "@kne/current-lib_markdown-components-render"],antd(antd),_ReactFetch(@kne/react-fetch),md(./doc/inline-example.md),(@kne/current-lib_markdown-components-render/dist/index.css)
+
+```jsx
+const { default: MarkdownComponentsRender } = _MarkdownComponentsRender;
+const { default: mdUrl } = md;
+const { default: Fetch } = _ReactFetch;
+const { Button, App, Flex } = antd;
+
+const InlineExample = () => {
+  const { message } = App.useApp();
+  return (
+    <Fetch
+      url={mdUrl}
+      ignoreSuccessState
+      render={({ data }) => {
+        return (
+          <Flex vertical gap={10}>
+            <MarkdownComponentsRender
+              components={{ Button }}
+              variables={{
+                handleShowMessage: () => {
+                  message.info('这是一个行内按钮触发的事件');
+                }
+              }}>
+              {data}
+            </MarkdownComponentsRender>
+          </Flex>
+        );
+      }}></Fetch>
+  );
+};
+
+render(<InlineExample />);
+
+```
+
+- 综合示例
+- 展示如何在一个 Markdown 文档中混合使用多种组件
+- _MarkdownComponentsRender(@kne/current-lib_markdown-components-render)[import * as _MarkdownComponentsRender from "@kne/current-lib_markdown-components-render"],antd(antd),_ReactFetch(@kne/react-fetch),md(./doc/mixed-example.md),(@kne/current-lib_markdown-components-render/dist/index.css)
+
+```jsx
+const { default: MarkdownComponentsRender } = _MarkdownComponentsRender;
+const { default: mdUrl } = md;
+const { default: Fetch } = _ReactFetch;
+const { Button, Card, App, Flex } = antd;
+
+const MixedExample = () => {
+  const { message } = App.useApp();
+  return (
+    <Fetch
+      url={mdUrl}
+      ignoreSuccessState
+      render={({ data }) => {
+        return (
+          <Flex vertical gap={10}>
+            <MarkdownComponentsRender
+              components={{ Button, Card, Flex }}
+              variables={{
+                handleStart: () => {
+                  message.success('开始使用！');
+                },
+                handleLearnMore: () => {
+                  message.info('了解更多信息');
+                },
+                handleQuickAction: () => {
+                  message.success('快捷操作执行成功');
+                },
+                handleMoreInfo: () => {
+                  message.info('正在打开文档...');
+                }
+              }}>
+              {data}
+            </MarkdownComponentsRender>
+          </Flex>
+        );
+      }}></Fetch>
+  );
+};
+
+render(<MixedExample />);
 
 ```
 
